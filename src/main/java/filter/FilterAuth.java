@@ -73,6 +73,9 @@ public class FilterAuth extends HttpFilter implements Filter {
 				chain.doFilter(request, response);
 			}
 			
+			
+			
+			
 			conn.commit();
 			
 		}catch (Exception e) {
