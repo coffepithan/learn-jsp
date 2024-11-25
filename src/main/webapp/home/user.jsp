@@ -33,10 +33,38 @@
 	                                <div class="page-wrapper">
 	                                    <!-- Page-body start -->
 	                                    <div class="page-body">
+	                                            <h3>User register!</h3>
 	                                        <div class="row">
+	                                            <div class="col-sm-12">
+	                                          
+		                                            <form>
+													  	<div class="m-3 form-group row">
+															<label for="login" class="col-sm-1 col-form-label">Login</label>
+															
+															<div class="col-sm-4">
+															    <input type="text" class="form-control" placeholder="Login" id="exampleInputEmail1" name="login">
+															</div>
+															
+														</div>
+														
+														<div class="m-3 form-group row">
+														    <label for="pwd" class="col-sm-1 col-form-label">Password</label>
+														    
+														  	<div class="col-sm-4">
+															    <input type="password" class="form-control" placeholder="Password" id="pwd" name="pwd">
+														  	</div>
+														  	<div class="col-sm-1">
+														  	
+														  		<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+														  	</div>
+													 	</div>
+													 	
+													</form>
+		                                            
 	                                            
-	                                            
-	                                            
+	                                            </div>
+	                                           
+	                                            	 
 	                                        </div>
 	                                    </div>
 	                                    <!-- Page-body end -->

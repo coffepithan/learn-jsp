@@ -16,6 +16,8 @@
 		
 		<form action="ServletLogin" method="post" class=" needs-validation bg-light text-dark rounded p-3" style="width: 500px" novalidate>
 		
+			<input type="hidden" value="<%= request.getParameter("url")%>" name="url">
+		
 		  	<div class="mb-3">
 			    <label for="login" class="form-label">Login</label>
 			    <input type="text" class="form-control" id="login" name="login" required>

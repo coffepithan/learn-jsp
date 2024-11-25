@@ -13,7 +13,7 @@ import dao.DAOLoginRepository;
 import model.Login;
 
 
-@WebServlet(urlPatterns = {"/home/ServletLogin", "/ServletLogin"})
+@WebServlet(urlPatterns = {"/home/ServletLogin", "/ServletLogin", "/home/ServletLogin?*"})
 public class ServletLogin extends HttpServlet {
 	
 	
@@ -27,6 +27,14 @@ public class ServletLogin extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String action = request.getParameter("action");
+		if(action != null && !action.isEmpty() && action.equalsIgnoreCase("logout")) {
+			request.getSession().invalidate();
+			
+			RequestDispatcher redirect = request.getRequestDispatcher("/index.jsp");
+			redirect.forward(request, response);
+		}
 		
 		doPost(request, response);
 		
@@ -50,13 +58,13 @@ public class ServletLogin extends HttpServlet {
 				modelLogin.setLogin(login);
 				modelLogin.setPwd(pwd);
 				
-				//simulata an authentication
+				//simulate an authentication
 				if(dao.AuthLogin(modelLogin)) {
 					
 					request.getSession().setAttribute("usuario", modelLogin.getLogin());//start an session
 					
 					if(url == null || url.equals("null")) {
-						url = "home/index.jsp";
+						url = "/home/index.jsp";
 					}
 					
 					RequestDispatcher redirect = request.getRequestDispatcher(url);
