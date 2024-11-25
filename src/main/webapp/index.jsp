@@ -14,16 +14,16 @@
 
 	<div class="d-flex justify-content-center align-items-center text-light" style="height: 900px">
 		
-		<form action="ServletLogin" method="post" class="bg-light text-dark rounded p-3">
+		<form action="ServletLogin" method="post" class=" needs-validation bg-light text-dark rounded p-3" style="width: 500px" novalidate>
 		
 		  	<div class="mb-3">
 			    <label for="login" class="form-label">Login</label>
-			    <input type="text" class="form-control" id="login" name="login" >
+			    <input type="text" class="form-control" id="login" name="login" required>
 		 	 </div>
 		  
 		  	<div class="mb-3">
 			    <label for="pwd" class="form-label">Password</label>
-			    <input type="password" class="form-control" name="pwd" id="pwd">
+			    <input type="password" class="form-control" name="pwd" id="pwd" required>
 		 	 </div>
 		 
 		  	<button type="submit" class="btn btn-primary">Submit</button><br>
@@ -33,5 +33,28 @@
 		
 	</div>
 
+<script>
+
+//Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 </body>
 </html>

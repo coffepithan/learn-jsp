@@ -1,22 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
+<html lang="en">
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-	
-</head>
-<body class="bg-dark">
-	
-	<div class="d-flex justify-content-center align-items-center text-light" style="height: 900px">
-	
-		<h1>SUCCESS!</h1>
+	<jsp:include page="head.jsp"></jsp:include>
 
-	</div>
+	  <body>
+	  
+	  <jsp:include page="theme-load.jsp"></jsp:include>
+	  
+	  <div id="pcoded" class="pcoded">
+	      <div class="pcoded-overlay-box"></div>
+	      <div class="pcoded-container navbar-wrapper">
+	          
+	          <jsp:include page="navbar.jsp"></jsp:include>
+	         
+	          <div class="pcoded-main-container">
+	              <div class="pcoded-wrapper">
+	                  
+	                  <jsp:include page="navbarmainmenu.jsp"></jsp:include>
+	                  
+	                  <div class="pcoded-content">
+	                      <!-- Page-header start -->
+	                      
+	                     <jsp:include page="page-header.jsp"></jsp:include>
+	                     
+	                      <!-- Page-header end -->
+	                      
+	                        <div class="pcoded-inner-content">
+	                            <!-- Main-body start -->
+	                            <div class="main-body">
+	                                <div class="page-wrapper">
+	                                    <!-- Page-body start -->
+	                                    <div class="page-body">
+	                                        <div class="row">
+	                                            
+	                                        </div>
+	                                    </div>
+	                                    <!-- Page-body end -->
+	                                </div>
+	                                <div id="styleSelector"> </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	   
+	   <jsp:include page="js.jsp"></jsp:include>
+	  
+	</body>
 
-</body>
+
 </html>
