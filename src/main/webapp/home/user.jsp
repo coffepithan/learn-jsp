@@ -37,28 +37,59 @@
 	                                        <div class="row">
 	                                            <div class="col-sm-12">
 	                                          
-		                                            <form>
+		                                            <form class="form-material" action="<%= request.getContextPath() %>/ServletUserController" method="post">
 													  	<div class="m-3 form-group row">
-															<label for="login" class="col-sm-1 col-form-label">Login</label>
+															<label for="login" class="col-sm-1 col-form-label">Id</label>
 															
-															<div class="col-sm-4">
-															    <input type="text" class="form-control" placeholder="Login" id="exampleInputEmail1" name="login">
+															<div class="col-sm-1">
+															    <input type="text" required class="form-control" readonly placeholder="Id" id="id" name="id" value="${modelLogin.id}">
 															</div>
 															
+														</div>
+														
+														<div class="m-3 form-group row">
+														    <label for="pwd" class="col-sm-1 col-form-label">Login</label>
+														    
+														  	<div class="col-sm-4">
+															    <input type="text" required class="form-control" placeholder="Login" id="login" name="login"  value="${modelLogin.login}">
+														  	</div>
+														
 														</div>
 														
 														<div class="m-3 form-group row">
 														    <label for="pwd" class="col-sm-1 col-form-label">Password</label>
 														    
 														  	<div class="col-sm-4">
-															    <input type="password" class="form-control" placeholder="Password" id="pwd" name="pwd">
+															    <input type="password" required class="form-control" placeholder="Password" id="pwd" name="pwd" value="${modelLogin.pwd}">
 														  	</div>
-														  	<div class="col-sm-1">
-														  	
-														  		<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+														
+														</div>
+														
+														<div class="m-3 form-group row">
+														    <label for="pwd" class="col-sm-1 col-form-label">Name</label>
+														    
+														  	<div class="col-sm-4">
+															    <input type="text" required class="form-control" placeholder="Name" id="name" name="username" value="${modelLogin.username}">
 														  	</div>
-													 	</div>
+														
+														</div>
+														
+														
+														<div class="m-3 form-group row">
+														    <label for="pwd" class="col-sm-1 col-form-label">Email</label>
+														    
+														  	<div class="col-sm-4">
+															    <input type="email" required class="form-control" placeholder="Email" id="email" name="email" value="${modelLogin.email}">
+														  	</div>
+														
+														</div>
+														
 													 	
+													 	<div class="m-3 form-group row">
+												  			<button type="submit" class="btn btn-primary btn-sm m-3">Create</button>
+												  			<button type="submit" class="btn btn-success btn-sm m-3">Update</button>
+												  			<button type="submit" class="btn btn-danger btn-sm m-3">Delete</button>
+													 	</div>
 													</form>
 		                                            
 	                                            
