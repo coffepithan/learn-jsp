@@ -15,6 +15,16 @@ public class Login implements Serializable {
 	private String email;
 	private String username;
 
+	public boolean isNew() {
+		
+		if(this.Id == null) {
+			return true;
+			
+		}
+		return false;
+		
+	}
+	
 	public Long getId() {
 		return Id;
 	}

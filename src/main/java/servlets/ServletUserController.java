@@ -54,8 +54,14 @@ public class ServletUserController extends HttpServlet {
 			
 			
 			if(userRepo.isValid(modelLogin.getLogin()) && modelLogin.getId() == null) {
+				System.out.println("entrou");
 				msg = "Login alredy exist. Please use another one!";
 			}
+			
+			if(modelLogin.isNew()) {
+				msg="User saved!";
+			}
+			msg="User updated!";
 			
 			userRepo.save(modelLogin);
 			//get a user from db

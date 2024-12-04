@@ -19,10 +19,30 @@ public class DAOUserRepository {
 
 	
 	//save user
-	public Login save(Login modelLogin) throws SQLException {
+	public Login save(Login modelLogin) throws Exception {
 		
+		if(modelLogin.isNew()) {
+			String sql = "insert into user_login(login, pwd, name, email) values(?, ?, ?, ?);";
+			
+			PreparedStatement query = connection.prepareStatement(sql);
+			query.setString(1, modelLogin.getLogin());
+			query.setString(2, modelLogin.getPwd());
+			query.setString(3, modelLogin.getUsername());
+			query.setString(4, modelLogin.getEmail());
+			
+			query.execute();
+			connection.commit();
 		
-		String sql = "insert into user_login(login, pwd, name, email) values(?, ?, ?, ?);";
+			return this.getUser(modelLogin.getLogin());
+		}
+		
+		return update(modelLogin);
+	}
+	
+	public Login update(Login modelLogin) throws Exception {
+		
+
+		String sql = "update user_login set login=?, pwd=?, name=?, email=? where id='"+modelLogin.getId()+"';";
 		
 		PreparedStatement query = connection.prepareStatement(sql);
 		query.setString(1, modelLogin.getLogin());
@@ -30,10 +50,11 @@ public class DAOUserRepository {
 		query.setString(3, modelLogin.getUsername());
 		query.setString(4, modelLogin.getEmail());
 		
-		query.execute();
+		query.executeUpdate();
 		connection.commit();
-	
 		return this.getUser(modelLogin.getLogin());
+
+		
 	}
 	
 	//search for user by login
