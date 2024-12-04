@@ -31,12 +31,18 @@ public class ServletUserController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
+			
+			String msg = "Operação realizada com sucesso!";
+			
+			//receive new user data from user page
 			String id = request.getParameter("id");
 			String username = request.getParameter("username");
 			String email = request.getParameter("email");
 			String login = request.getParameter("login");
 			String pwd = request.getParameter("pwd");
 		
+			
+			//set received data to a new login instance
 			Login modelLogin = new Login();
 			modelLogin.setId(id != null && !id.isEmpty() ? Long.parseLong(id) : null);
 			modelLogin.setEmail(email);
@@ -44,11 +50,20 @@ public class ServletUserController extends HttpServlet {
 			modelLogin.setLogin(login);
 			modelLogin.setPwd(pwd);
 			
+			//save user in db
+			
+			
+			if(userRepo.isValid(modelLogin.getLogin()) && modelLogin.getId() == null) {
+				msg = "Login alredy exist. Please use another one!";
+			}
 			
 			userRepo.save(modelLogin);
+			//get a user from db
+			Login user = userRepo.getUser(modelLogin.getLogin());
 			
-			request.setAttribute("modelLogin", modelLogin);
-			request.setAttribute("msg", "Operação realizada com sucesso!");			
+			
+			request.setAttribute("modelLogin", user);
+			request.setAttribute("msg", msg);			
 			RequestDispatcher redirect = request.getRequestDispatcher("home/user.jsp");
 			redirect.forward(request, response);
 		}catch (Exception e) {
